@@ -1,7 +1,20 @@
 {
-  "name": "leoluca-integration-project",
+  "scripts": {
+    "build": "parcel build src/index.html",
+    "dev": "parcel src/index.html --open",
+    "start": "npm run build && npm run dev"
+  },
   "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.1",
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "@nomiclabs/hardhat-ethers": "^2.1.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@openzeppelin/contracts": "^4.7.2",
+    "chai": "^4.3.6",
+    "dotenv": "^16.0.1",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.6.9",
     "hardhat": "^2.10.1"
   }
 }

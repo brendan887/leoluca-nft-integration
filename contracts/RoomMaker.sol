@@ -3,28 +3,46 @@ pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract RoomMaker is ERC721, ERC721URIStorage, Pausable, Ownable, ERC721Burnable {
-    uint256 public mintPrice; // mint price of each NFT
-    uint256 public currentSupply; // current # minted
-    uint256 public maxSupply; // max # that can be minted
-    uint256 public maxPerWallet; // max # a wallet can mint
-    address payable public withdrawWallet; // wallet that crypto is withdrawn to
-    mapping(string => uint8) existingURIs; // maintains URIs of minted NFTs
+    /**
+    Minimize variable creation and updates to reduce gas fees. Store data off-
+    chain where possible. Use constants if updates do not need to be made.
+    */
+
+    uint256 public mintPrice; // Mint price of each token
+    uint256 public maxPerWallet; // Max # a wallet can mint
 
     using Counters for Counters.Counter;
-
     Counters.Counter private _tokenIdCounter;
 
-    constructor() ERC721("RoomMaker", "RMKR") {}
+    constructor() ERC721("RoomMaker", "RMKR") {
+        mintPrice = 0.02 ether;
+        maxPerWallet = 5;
+    }
 
     function _baseURI() internal pure override returns (string memory) {
-        return "TO-DO";
+        // TODO: Set base URI
+        return "";
     }
+
+    function getCount() public view returns (uint256) {
+        return _tokenIdCounter.current();
+    }
+
+    function getBalance(address user) public view returns (uint256) {
+        return balanceOf(user);
+    }
+
+    function getOwner(uint256 tokenId) public view returns (address) {
+        return ownerOf(tokenId);
+    }
+
+    // Owner functions
 
     function pause() public onlyOwner {
         _pause();
@@ -38,39 +56,33 @@ contract RoomMaker is ERC721, ERC721URIStorage, Pausable, Ownable, ERC721Burnabl
         mintPrice = mintPrice_;
     }
 
-    function setMaxSupply(uint256 maxSupply_) external onlyOwner {
-        maxSupply = maxSupply_;
-    }
-
     function setMaxPerWallet(uint256 maxPerWallet_) external onlyOwner {
         maxPerWallet = maxPerWallet_;
     }
 
     function withdraw() external onlyOwner {
-        (bool success, ) = withdrawWallet.call{ value: address(this).balance }('');
+        (bool success, ) = owner().call{ value: address(this).balance }('');
         require(success, 'Withdraw failed');
     }
 
-    function mintToken(address to, string memory uri) public whenNotPaused {
+    // User functions
+
+    function mintToken(string memory metadataURI) public payable whenNotPaused returns (uint256) {
+        address recipient = msg.sender;
+
         require(msg.value >= mintPrice, "Incorrect mint value");
-        require(currentSupply < maxSupply, "Maximum supply reached");
-        require(balanceOf(msg.sender) < maxPerWallet, "Maximum mints reached");
+        require(balanceOf(recipient) < maxPerWallet, "Maximum mints reached");
 
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
-        _safeMint(msg.sender, tokenId);
-        _setTokenURI(tokenId, uri);
+
+        _safeMint(recipient, tokenId);
+        _setTokenURI(tokenId, metadataURI);
+
+        return tokenId;
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId)
-        internal
-        whenNotPaused
-        override
-    {
-        super._beforeTokenTransfer(from, to, tokenId);
-    }
-
-    // The following functions are overrides required by Solidity.
+    // Overrides
 
     function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
         super._burn(tokenId);
@@ -83,5 +95,13 @@ contract RoomMaker is ERC721, ERC721URIStorage, Pausable, Ownable, ERC721Burnabl
         returns (string memory)
     {
         return super.tokenURI(tokenId);
+    }
+
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId)
+        internal
+        whenNotPaused
+        override
+    {
+        super._beforeTokenTransfer(from, to, tokenId);
     }
 }
