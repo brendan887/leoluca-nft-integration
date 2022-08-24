@@ -1,0 +1,33 @@
+{
+    "ownedNfts":[{
+        "contract":
+            {"address":"0x793aed93cfca4f39bc06f638acd2e099500145d1"},
+        "id":{
+            "tokenId":"0x0000000000000000000000000000000000000000000000000000000000000000",
+            "tokenMetadata":{"tokenType":"ERC721"}
+        },
+        "balance":"1",
+        "title":"crusty-todd",
+        "description":"A drawing of crusty todd",
+        "tokenUri":{
+            "raw":"ipfs://QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/0.json",
+            "gateway":"https://ipfs.io/ipfs/QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/0.json"
+        },
+        "media":[{
+            "raw":"0.png",
+            "gateway":""}],
+        "metadata":{
+            "name":"crusty-todd",
+            "description":"A drawing of crusty todd",
+            "image":"0.png",
+            "attributes":[{
+                "beard":"",
+                "rarity":0.5
+            }]
+        },
+        "timeLastUpdated":"2022-07-29T01:03:15.575Z",
+        "contractMetadata":{
+            "name":"MyNFT",
+            "symbol":"MTK",
+            "tokenType":"ERC721"}
+    },{"contract":{"address":"0x793aed93cfca4f39bc06f638acd2e099500145d1"},"id":{"tokenId":"0x0000000000000000000000000000000000000000000000000000000000000001","tokenMetadata":{"tokenType":"ERC721"}},"balance":"1","title":"freaky-dustin","description":"A drawing of freaky dustin","tokenUri":{"raw":"ipfs://QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/1.json","gateway":"https://ipfs.io/ipfs/QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/1.json"},"media":[{"raw":"1.png","gateway":""}],"metadata":{"name":"freaky-dustin","description":"A drawing of freaky dustin","image":"1.png","attributes":[{"beard":"","rarity":0.5}]},"timeLastUpdated":"2022-07-29T01:03:17.128Z","contractMetadata":{"name":"MyNFT","symbol":"MTK","tokenType":"ERC721"}},{"contract":{"address":"0x793aed93cfca4f39bc06f638acd2e099500145d1"},"id":{"tokenId":"0x0000000000000000000000000000000000000000000000000000000000000002","tokenMetadata":{"tokenType":"ERC721"}},"balance":"1","title":"glutinous-roger","description":"A drawing of glutinous roger","tokenUri":{"raw":"ipfs://QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/2.json","gateway":"https://ipfs.io/ipfs/QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/2.json"},"media":[{"raw":"2.png","gateway":""}],"metadata":{"name":"glutinous-roger","description":"A drawing of glutinous roger","image":"2.png","attributes":[{"beard":"","rarity":0.5}]},"timeLastUpdated":"2022-07-29T02:11:08.260Z","contractMetadata":{"name":"MyNFT","symbol":"MTK","tokenType":"ERC721"}},{"contract":{"address":"0x793aed93cfca4f39bc06f638acd2e099500145d1"},"id":{"tokenId":"0x0000000000000000000000000000000000000000000000000000000000000003","tokenMetadata":{"tokenType":"ERC721"}},"balance":"1","title":"shifty-lester","description":"A drawing of shifty lester","tokenUri":{"raw":"ipfs://QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/3.json","gateway":"https://ipfs.io/ipfs/QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/3.json"},"media":[{"raw":"3.png","gateway":""}],"metadata":{"name":"shifty-lester","description":"A drawing of shifty lester","image":"3.png","attributes":[{"beard":"","rarity":0.5}]},"timeLastUpdated":"2022-08-23T09:18:42.836Z","contractMetadata":{"name":"MyNFT","symbol":"MTK","tokenType":"ERC721"}},{"contract":{"address":"0x793aed93cfca4f39bc06f638acd2e099500145d1"},"id":{"tokenId":"0x0000000000000000000000000000000000000000000000000000000000000004","tokenMetadata":{"tokenType":"ERC721"}},"balance":"1","title":"pastey-raheem","description":"A drawing of pastey raheem","tokenUri":{"raw":"ipfs://QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/4.json","gateway":"https://ipfs.io/ipfs/QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/4.json"},"media":[{"raw":"4.png","gateway":""}],"metadata":{"name":"pastey-raheem","description":"A drawing of pastey raheem","image":"4.png","attributes":[{"beard":"","rarity":0.5}]},"timeLastUpdated":"2022-08-23T09:20:38.735Z","contractMetadata":{"name":"MyNFT","symbol":"MTK","tokenType":"ERC721"}},{"contract":{"address":"0x793aed93cfca4f39bc06f638acd2e099500145d1"},"id":{"tokenId":"0x0000000000000000000000000000000000000000000000000000000000000005","tokenMetadata":{"tokenType":"ERC721"}},"balance":"1","title":"ragin-arnold","description":"A drawing of ragin arnold","tokenUri":{"raw":"ipfs://QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/5.json","gateway":"https://ipfs.io/ipfs/QmeV2XuXkfbHF33JbTQgHri3ubFSzyQDW6KNqYzYZ2XYyF/5.json"},"media":[{"raw":"5.png","gateway":""}],"metadata":{"name":"ragin-arnold","description":"A drawing of ragin arnold","image":"5.png","attributes":[{"beard":"","rarity":0.5}]},"timeLastUpdated":"2022-08-23T09:20:40.127Z","contractMetadata":{"name":"MyNFT","symbol":"MTK","tokenType":"ERC721"}}],"totalCount":6,"blockHash":"0xc67a31381b29a7c1748cf72263bff6eb83b8414100fa10df66506306bbd90d4b"}

@@ -1,8 +1,9 @@
 {
-    "name": "",
-    "description": "",
-    "image": "",
-    "animation_url": "",
-    "attributes": [],
-    "tokenId": ""
+    "name": "Name of NFT (user set?)",
+    "description": "Description of NFT (user set?)",
+    "image": "Must be complete URL",
+    "animation_url": "Must be complete URL, enables interactive 3D previews, not necessary", 
+    "attributes": [
+        {"trait_type": "", "value": ""}
+    ]
 }

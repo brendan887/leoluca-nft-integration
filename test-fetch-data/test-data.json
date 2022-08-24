@@ -1,0 +1,48 @@
+{"ownedNfts":[
+    {"contract":
+        {"address":"0x579afa3b89a5e1471e59b34dec4728098d143061"},
+        "id":{
+            "tokenId":"0x0000000000000000000000000000000000000000000000000000000000000001",
+            "tokenMetadata":{"tokenType":"ERC721"}},
+        "balance":"1",
+        "title":"Fırat Uni",
+        "description":"Fırat Uni Logo NFT",
+        "tokenUri":{
+            "raw":"https://gateway.pinata.cloud/ipfs/Qmb2QLkXpaJDHYvXHfAnFphu9453tnjTMzJG6DTaTN198C",
+            "gateway":"https://ipfs.io/ipfs/Qmb2QLkXpaJDHYvXHfAnFphu9453tnjTMzJG6DTaTN198C"},
+        "media":[{
+            "raw":"https://gateway.pinata.cloud/ipfs/QmZzLMDJn137fUfYCvkyTXDN9V1j8urH2AiPNK221oi4oQ",
+            "gateway":"https://ipfs.io/ipfs/QmZzLMDJn137fUfYCvkyTXDN9V1j8urH2AiPNK221oi4oQ"}],
+        "metadata":{
+            "name":"Fırat Uni",
+            "description":"Fırat Uni Logo NFT",
+            "image":"https://gateway.pinata.cloud/ipfs/QmZzLMDJn137fUfYCvkyTXDN9V1j8urH2AiPNK221oi4oQ",
+            "price":"0.01"},
+        "timeLastUpdated":"2022-08-22T04:01:23.923Z",
+        "contractMetadata":{
+            "name":"NFTMarketplace",
+            "symbol":"NFTM",
+            "tokenType":"ERC721"}},
+    {"contract":{
+        "address":"0x579afa3b89a5e1471e59b34dec4728098d143061"},
+        "id":{
+            "tokenId":"0x0000000000000000000000000000000000000000000000000000000000000002",
+            "tokenMetadata":{
+                "tokenType":"ERC721"}},
+        "balance":"1",
+        "title":"HarryPotter",
+        "description":"HarryPotter NFT",
+        "tokenUri":{
+            "raw":"https://gateway.pinata.cloud/ipfs/QmRkfm3DedYuYwCSswVGcF7YsnStvkVVXGUrFwTqEgxCKd",
+            "gateway":"https://ipfs.io/ipfs/QmRkfm3DedYuYwCSswVGcF7YsnStvkVVXGUrFwTqEgxCKd"},
+        "media":[{
+            "raw":"https://gateway.pinata.cloud/ipfs/QmaLGCaMxSgV9PmqDDEj2dwzeYxQ9zdEJXuWBnbTiL1zhq",
+            "gateway":"https://ipfs.io/ipfs/QmaLGCaMxSgV9PmqDDEj2dwzeYxQ9zdEJXuWBnbTiL1zhq"}],
+        "metadata":{
+            "name":"HarryPotter",
+            "description":"HarryPotter NFT",
+            "image":"https://gateway.pinata.cloud/ipfs/QmaLGCaMxSgV9PmqDDEj2dwzeYxQ9zdEJXuWBnbTiL1zhq","price":"0.01"},
+        "timeLastUpdated":"2022-08-22T04:01:23.211Z",
+        "contractMetadata":{"name":"NFTMarketplace","symbol":"NFTM","tokenType":"ERC721"}}],
+    "totalCount":2,
+    "blockHash":"0x04e8c7f9d693f20e6f7a05a8f2360e95288175f554740e5941a6e6ac753559af"}
