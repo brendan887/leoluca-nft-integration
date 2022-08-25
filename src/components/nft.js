@@ -2,13 +2,13 @@ import { ethers } from "ethers";
 import RoomMaker from "../artifacts/contracts/RoomMaker.sol/Roommaker.json";
 
 // Contract address should not change after deployment to net
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const contractAddress = "0x0c4272eE2DE9d51073995874E1908Ac7BE71a8e6";
 
 // Mint price should be updated here and in the smart contract
-const mintPrice = "0.02";
+const mintPrice = "0.01";
 
 // Alchemy endpoint for fetchNFT function
-const endPoint = "https://eth-mainnet.g.alchemy.com/v2/n4QFvt_BQkteIhUvnWuPh5gdiPO_snTY";
+const endPoint = "https://eth-goerli.g.alchemy.com/v2/grj2v0Knpbrr7Mn6lN3N6tz00uh1dd2i";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();

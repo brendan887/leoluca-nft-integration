@@ -8,7 +8,6 @@ typechain-types
 #Hardhat files
 cache
 .cache
-artifacts
 
 # Editor directories and files
 .vscode/*

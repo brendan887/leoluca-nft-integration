@@ -21,7 +21,7 @@ contract RoomMaker is ERC721, ERC721URIStorage, Pausable, Ownable, ERC721Burnabl
     Counters.Counter private _tokenIdCounter;
 
     constructor() ERC721("RoomMaker", "RMKR") {
-        mintPrice = 0.02 ether;
+        mintPrice = 0.01 ether;
         maxPerWallet = 5;
     }
 

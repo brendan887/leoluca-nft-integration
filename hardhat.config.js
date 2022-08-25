@@ -14,19 +14,17 @@ module.exports = {
   networks: {
     hardhat: {
       chainId: 1337
-    }
-    /**
+    },
     goerli: {
       url: process.env.GOERLI_RPC_URL,
       accounts: [process.env.DEPLOYER_PRIVATE_KEY]
-    },
-    mainnet: {
-      url: process.env.MAINNET_RPC_URL,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY]
     }
+    // mainnet: {
+    //   url: process.env.MAINNET_RPC_URL,
+    //   accounts: [process.env.DEPLOYER_PRIVATE_KEY]
+    // }
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_KEY
-     */
   }
 };
