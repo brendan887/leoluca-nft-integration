@@ -14,11 +14,17 @@ const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
 const contract = new ethers.Contract(contractAddress, RoomMaker.abi, signer);
 
+/**
+ * Test that module can be accessed
+ */
 const moduleTest = document.getElementById(`btn-test`);
 moduleTest.onclick = () => {
     console.log("Hello from NFT module!");
 };
 
+/**
+ * Connects to user's active Metamask account and logs the address
+ */
 const connectAccount = document.getElementById(`btn-connect`);
 connectAccount.onclick = async () => {
     if (window.ethereum) {
@@ -31,7 +37,9 @@ connectAccount.onclick = async () => {
     }
 };
 
-// API call to backend required to get metadata URI
+/**
+ * Mint NFT function
+ */
 const mintNFT = document.getElementById(`btn-mint`);
 mintNFT.onclick = async() => {
     // API call to backend
@@ -47,12 +55,19 @@ mintNFT.onclick = async() => {
     }
 };
 
+/**
+ * Logs the current number of NFTs minted on the contract
+ */
 const countNFT = document.getElementById(`btn-count`);
 countNFT.onclick = async() => {
     const count = await contract.getCount();
     console.log("Count: ", count);
 };
 
+
+/**
+ * Gets all user's NFTs and displays fetched information
+ */
 const fetchNFT = document.getElementById(`btn-fetch`);
 fetchNFT.onclick = async() => {
 
@@ -60,7 +75,7 @@ fetchNFT.onclick = async() => {
         method: "eth_requestAccounts"
     });
 
-    console.log("Fetching NFTs: ", addr[0]);
+    console.log("Fetching NFTs: ",  addr[0]);
 
     let data;
 
@@ -111,4 +126,64 @@ fetchNFT.onclick = async() => {
     }
 
     console.log("Done");
+}
+
+/**
+ * CAUTION
+ * Burns ALL user's NFTs minted on the contract
+ */
+const burnAllNFT = document.getElementById(`btn-burn`);
+burnAllNFT.onclick = async() => {
+    const addr = await window.ethereum.request({
+        method: "eth_requestAccounts"
+    });
+
+    let data;
+
+    try {
+        data = await fetch(`${endPoint}/getNFTs?owner=${addr[0]}&contractAddresses%5B%5D=${contractAddress}`).then(data => data.json());
+    } catch (err) {
+        console.log("Error: ", err);
+    }
+
+    for (let i = 0; i < data.totalCount; i++) {
+        try {
+            await contract.burn(data.ownedNfts[i].id.tokenId);
+        } catch (err) {
+            console.log("Error: ", err);
+        }
+    }
+    console.log("Tokens burned");
+}
+
+// Helper Functions
+
+/**
+ * Get all user's NFTs
+ */
+async function getAllNFTs(userAddr) {
+    let data;
+
+    try {
+        data = await fetch(`${endPoint}/getNFTs?owner=${userAddr}`).then(data => data.json());
+    } catch (err) {
+        console.log("Error: ", err);
+    }
+
+    return data;
+}
+
+/**
+ * Get all user's NFTs minted on the contract
+ */
+async function getAllNFTsByContract(userAddr, contractAddr) {
+    let data;
+
+    try {
+        data = await fetch(`${endPoint}/getNFTs?owner=${userAddr}&contractAddresses%5B%5D=${contractAddr}`).then(data => data.json());
+    } catch (err) {
+        console.log("Error: ", err);
+    }
+
+    return data;
 }
