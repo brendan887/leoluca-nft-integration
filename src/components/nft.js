@@ -60,13 +60,13 @@ fetchNFT.onclick = async() => {
         method: "eth_requestAccounts"
     });
 
-    console.log("Fetching owned NFTs")
+    console.log("Fetching NFTs: ", addr[0]);
 
     let data;
 
     try {
 
-        data = await fetch(`${endPoint}/getNFTs?owner=0xE85b14f37ed20f775BEeBf90e657d8A050640623`).then(data => data.json());
+        data = await fetch(`${endPoint}/getNFTs?owner=${addr[0]}`).then(data => data.json());
 
         // For getting NFTs a single contract (insert RMKR addr to filter)
         // data = await fetch(`${endpoint}/getNFTs?owner=${owner}&contractAddresses%5B%5D=${contractAddress}`).then(data => data.json())
@@ -86,7 +86,7 @@ fetchNFT.onclick = async() => {
         const title = token.title;
         const id = token.id.tokenId;
         const contractAddr = token.contract.address;
-        const img = token.media[0].gateway; // Some NFT media may not an image
+        const img = token.media[0].gateway; // Some NFT media may not be an image
 
         const tokenContainer = document.createElement( 'div' );
 
@@ -109,4 +109,6 @@ fetchNFT.onclick = async() => {
         const element = document.getElementById("user-tokens");
         element.appendChild(tokenContainer);
     }
+
+    console.log("Done");
 }
