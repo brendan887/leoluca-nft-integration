@@ -46,7 +46,7 @@ mintNFT.onclick = async() => {
     // Returns metadataURI
 
     try {
-        const result = await contract.mintToken(metadataURI, {
+        const result = await contract.mintToken("test", {
             value: ethers.utils.parseEther(mintPrice),
         });
         console.log("Result:", result);
@@ -60,8 +60,9 @@ mintNFT.onclick = async() => {
  */
 const countNFT = document.getElementById(`btn-count`);
 countNFT.onclick = async() => {
-    const count = await contract.getCount();
-    console.log("Count: ", count);
+    const bigNumberCount = await contract.getCount();
+    const decCount = parseInt(bigNumberCount._hex, 16);
+    console.log("Count: ", decCount);
 };
 
 
@@ -98,8 +99,8 @@ fetchNFT.onclick = async() => {
         console.log(token);
         console.log("Fetched NFT", i);
 
-        const title = token.title;
-        const id = token.id.tokenId;
+        const name = token.title;
+        const id = parseInt(token.id.tokenId, 16);
         const contractAddr = token.contract.address;
         const img = token.media[0].gateway; // Some NFT media may not be an image
 
@@ -109,9 +110,9 @@ fetchNFT.onclick = async() => {
         displayImg.src = img;
         tokenContainer.appendChild(displayImg);
 
-        const displayTitle = document.createElement( 'h3' );
-        displayTitle.textContent = title;
-        tokenContainer.appendChild(displayTitle);
+        const displayName = document.createElement( 'h3' );
+        displayName.textContent = name;
+        tokenContainer.appendChild(displayName);
 
         const displayId = document.createElement( 'p' );
         displayId.textContent = id;
@@ -130,7 +131,7 @@ fetchNFT.onclick = async() => {
 
 /**
  * CAUTION
- * Burns ALL user's NFTs minted on the contract
+ * Burns ALL user's NFTs minted on the contract with contractAddress
  */
 const burnAllNFT = document.getElementById(`btn-burn`);
 burnAllNFT.onclick = async() => {
@@ -148,7 +149,12 @@ burnAllNFT.onclick = async() => {
 
     for (let i = 0; i < data.totalCount; i++) {
         try {
-            await contract.burn(data.ownedNfts[i].id.tokenId);
+            const token = data.ownedNfts[i];
+            const id = token.id.tokenId;
+            const name = token.title;
+
+            console.log("Burning: ", name, parseInt(id, 16));
+            await contract.burn(id);
         } catch (err) {
             console.log("Error: ", err);
         }
